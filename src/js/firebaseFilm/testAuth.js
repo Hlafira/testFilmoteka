@@ -7,8 +7,8 @@ import {
   updateProfile,
 } from 'firebase/auth';
 
-import { renderLogin } from '../renderLogin/renderLogin';
 import { authMy } from './fbInit';
+import { returnMessage } from '../dataStorage/errorsMessage';
 
 export class FbFilmsAuth {
   constructor(user, language = 'en') {
