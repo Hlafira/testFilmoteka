@@ -101,6 +101,7 @@ class FirebaseAuth {
 export const firebaseAuth = new FirebaseAuth(null);
 // Прослушивает авторизацию
 auth.onAuthStateChanged(user => {
+  console.log('loginf');
   if (user) {
     firebaseAuth.user = user;
     firebaseAuth.isLogin = true;
