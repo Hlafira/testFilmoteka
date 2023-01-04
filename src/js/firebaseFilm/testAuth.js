@@ -18,7 +18,26 @@ export class FbFilmsAuth {
     this.isLogin = !!user;
     this.language = language;
   }
+  /**
+   * @returns {String} имя авторизированного пользователя
+   */
+  getUserDisplayName() {
+    if (this.isLogin) {
+      return this.user.displayName
+        ? this.user.displayName.length > 0
+          ? this.user.displayName
+          : this.user.email
+        : this.user.email;
+    }
+    return '';
+  }
 
+  getUserUid() {
+    if (this.isLogin) {
+      return this.user?.uid;
+    }
+    return null;
+  }
   /**
    * Вход
    * @param {String} email  не проверяет
@@ -33,6 +52,32 @@ export class FbFilmsAuth {
         password
       );
       this.user = userCredential.user;
+      return '';
+    } catch (e) {
+      return returnMessage(e.code, this.language);
+    }
+  }
+  /**
+   *
+   * @param {String} email не проверяет
+   * @param {String} password
+   * @param {String} userName
+   * @returns {Promise} String сообщение об ошибке
+   */
+  async singUp(email, password, userName = '') {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      this.user = userCredential.user;
+      if (userName.length > 0) {
+      }
+      await updateProfile(this.user, {
+        displayName: userName,
+        //photoURL: 'https://example.com/jane-q-user/profile.jpg',
+      });
       return '';
     } catch (e) {
       return returnMessage(e.code, this.language);
@@ -66,5 +111,15 @@ authMy.onAuthStateChanged(user => {
     fbFilmsAuth.user = null;
     fbFilmsAuth.isLogin = false;
   }
-  renderLogin(fbFilmsAuth.isLogin, 'test');
+  renderLogin(fbFilmsAuth.isLogin, fbFilmsAuth.getUserDisplayName());
 });
+
+async function exampleLogin() {
+  const email = 'some9email@mail.com';
+  const password = 'anypassword';
+  const result = await fbFilmsAuth.login(email, password);
+  console.log(result);
+  console.log(fbFilmsAuth.getUserDisplayName());
+}
+
+exampleLogin();

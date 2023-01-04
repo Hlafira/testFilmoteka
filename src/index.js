@@ -27,4 +27,4 @@ import { fbFilmsAuth } from './js/firebaseFilm/testAuth';
 import { changeMode } from './js/changeMode/changeMode';
 // import { testFbDataBase } from './js/firebase/test';
 // testFbDataBase();
-console.log('change8');
+console.log('change9');
