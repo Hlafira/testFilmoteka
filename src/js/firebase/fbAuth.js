@@ -9,7 +9,7 @@ import { auth } from './fbInit';
 import { fbFilmsData } from './fbFilms';
 import { returnMessage } from '../dataStorage/errorsMessage';
 
-class FirebaseAuth {
+class FbFilmsAuth {
   constructor(user, language = 'en') {
     this.user = user;
     this.isLogin = !!user;
@@ -98,18 +98,18 @@ class FirebaseAuth {
   }
 }
 
-export const firebaseAuth = new FirebaseAuth(null);
+export const fbFilmsAuth = new FbFilmsAuth(null);
 // Прослушивает авторизацию
 auth.onAuthStateChanged(user => {
   console.log('loginf');
   if (user) {
-    firebaseAuth.user = user;
-    firebaseAuth.isLogin = true;
+    fbFilmsAuth.user = user;
+    fbFilmsAuth.isLogin = true;
     fbFilmsData.setUid(user.uid);
   } else {
-    firebaseAuth.user = null;
-    firebaseAuth.isLogin = false;
+    fbFilmsAuth.user = null;
+    fbFilmsAuth.isLogin = false;
     fbFilmsData.setUid(null);
   }
-  renderLogin(firebaseAuth.isLogin, firebaseAuth.getUserDisplayName());
+  renderLogin(fbFilmsAuth.isLogin, fbFilmsAuth.getUserDisplayName());
 });
