@@ -8,7 +8,7 @@ import {
 } from 'firebase/auth';
 
 import { renderLogin } from '../renderLogin/renderLogin';
-import { auth } from './fbInit';
+import { authMy } from './fbInit';
 import { fbFilmsData } from './fbFilms';
 import { returnMessage } from '../dataStorage/errorsMessage';
 
