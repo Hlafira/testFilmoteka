@@ -104,7 +104,7 @@ async function exampleGetFilmFromQU() {
 
 /* Запись фильма в библиотеку */
 async function exampleWriteToLibrary() {
-  const film1 = await getFilms.getById(106541);
+  const film1 = await getFilms.getById(330457);
   console.log('film1 =', film1);
   result = await fbFilmsData.writeTo(film1, 'WA');
   console.log('result = ', result);
@@ -117,16 +117,16 @@ export function testFbDataBase() {
   const password = 'anypassword';
   refs.header.addEventListener('click', () => {
     console.log('login');
-    exampleLogin();
+
     // setTimeout(() => {
     //   exampleWriteToLibrary();
     // }, 4000);
     setTimeout(() => {
       exampleGetFilmFromQU();
-    }, 3000);
+    }, 100);
   });
 }
 
 refs.footer.addEventListener('click', () => {
-  exampleLogOut();
+  exampleGetFilmFromQU();
 });
