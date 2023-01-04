@@ -14,6 +14,7 @@ import { returnMessage } from '../dataStorage/errorsMessage';
 
 class FbFilmsAuth {
   constructor(user, language = 'en') {
+    console.log('constructor');
     this.user = user;
     this.isLogin = !!user;
     this.language = language;
