@@ -9,7 +9,7 @@ import { auth } from './fbInit';
 import { fbFilmsData } from './fbFilms';
 import { returnMessage } from '../dataStorage/errorsMessage';
 */
-class FirebaseAuth {
+class FirebaseAuth1 {
   constructor(user, language = 'en') {
     this.user = user;
     this.isLogin = !!user;
