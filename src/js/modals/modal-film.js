@@ -3,8 +3,8 @@ import FilmsData from '../moviesAPI/filmsData';
 import { renderModalMarkup } from '../renderMarkupFilmoteka/renderModalFilmMarkup';
 import { markupModalCreating } from '../renderMarkupFilmoteka/renderModalFilmMarkup';
 import renderErrorModalMarkup from '../renderMarkupFilmoteka/renderErrorModalMarkup';
-import { firebaseAuth } from '../firebase/fbAuth';
-import { fbFilmsData } from '../firebase/fbFilms';
+// import { firebaseAuth } from '../firebase/fbAuth';
+// import { fbFilmsData } from '../firebase/fbFilms';
 
 const refs = getRefs();
 const filmsData = new FilmsData();
@@ -48,9 +48,9 @@ export default function toggleModalFilm() {
           refs.modalFilmWrapper,
           markupModalCreating(filmProperties)
         );
-        if (firebaseAuth.isLogin) {
-          addBtnAction();
-        }
+        // if (firebaseAuth.isLogin) {
+        //   addBtnAction();
+        // }
       })
       // .catch(refs.modalErrorMarkup.classList.remove('visually-hidden'));
       .catch(renderErrorModalMarkup);
@@ -90,6 +90,6 @@ function addBtnAction() {
 
 async function addFilmToW() {
   console.log(currentFilm);
-  const film2 = await fbFilmsData.writeTo(currentFilm, 'WA');
+  // const film2 = await fbFilmsData.writeTo(currentFilm, 'WA');
   console.log(film2);
 }
