@@ -15,7 +15,7 @@ import { loginModal } from './js/firebase/loginModal';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 //import { firebaseConfig } from './js/firebase/fireBaseData';
-// import { FirebaseAuth } from './js/firebase/fbAuth';
+ import { firebaseAuth } from './js/firebase/fbAuth';
 
 import { changeMode } from './js/changeMode/changeMode';
 // import { testFbDataBase } from './js/firebase/test';
