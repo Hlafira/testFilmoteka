@@ -15,7 +15,14 @@ import { loginModal } from './js/firebase/loginModal';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 //import { firebaseConfig } from './js/firebase/fireBaseData';
-import { fbFilmsAuth } from './js/firebase/fbAuth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  deleteUser,
+  updateProfile,
+} from 'firebase/auth';
 
 import { changeMode } from './js/changeMode/changeMode';
 // import { testFbDataBase } from './js/firebase/test';
