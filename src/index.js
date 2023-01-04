@@ -13,7 +13,7 @@ import { onPagination } from './js/pagination/pagination';
 import { loginModal } from './js/firebase/loginModal';
 
 import { initializeApp } from 'firebase/app';
-//import { getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 //import { firebaseConfig } from './js/firebase/fireBaseData';
 // import { FirebaseAuth } from './js/firebase/fbAuth';
 
