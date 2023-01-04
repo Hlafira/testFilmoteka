@@ -1,9 +1,6 @@
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
-  deleteUser,
   updateProfile,
 } from 'firebase/auth';
 
@@ -67,7 +64,7 @@ export class FbFilmsAuth {
   async singUp(email, password, userName = '') {
     try {
       const userCredential = await createUserWithEmailAndPassword(
-        auth,
+        authMy,
         email,
         password
       );
