@@ -18,8 +18,9 @@ import { firebaseConfig } from './js/firebase/fireBaseData';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from 'firebase/auth';
-//import { auth, filmsDatabase } from './js/firebase/fbInit';
+import { auth, filmsDatabase } from './js/firebase/fbInit';
 
 import { changeMode } from './js/changeMode/changeMode';
 // import { testFbDataBase } from './js/firebase/test';
