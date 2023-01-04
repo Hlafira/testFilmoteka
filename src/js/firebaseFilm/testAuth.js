@@ -9,6 +9,7 @@ import {
 
 import { authMy } from './fbInit';
 import { returnMessage } from '../dataStorage/errorsMessage';
+import { renderLogin } from '../renderLogin/renderLogin';
 
 export class FbFilmsAuth {
   constructor(user, language = 'en') {
@@ -27,7 +28,7 @@ export class FbFilmsAuth {
   async login(email, password) {
     try {
       const userCredential = await signInWithEmailAndPassword(
-        auth,
+        authMy,
         email,
         password
       );
@@ -46,7 +47,7 @@ export class FbFilmsAuth {
     //auth/user-not-found
     if (!this.isLogin) return '';
     try {
-      await auth.signOut();
+      await authMy.signOut();
       return '';
     } catch (e) {
       return returnMessage(e.code, this.language);
@@ -55,3 +56,15 @@ export class FbFilmsAuth {
 }
 
 export const fbFilmsAuth = new FbFilmsAuth(null);
+
+// Прослушивает авторизацию
+authMy.onAuthStateChanged(user => {
+  if (user) {
+    fbFilmsAuth.user = user;
+    fbFilmsAuth.isLogin = true;
+  } else {
+    fbFilmsAuth.user = null;
+    fbFilmsAuth.isLogin = false;
+  }
+  renderLogin(fbFilmsAuth.isLogin, 'test');
+});
