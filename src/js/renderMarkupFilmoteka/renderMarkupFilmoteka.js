@@ -14,6 +14,8 @@ const refs = getRefs();
 
 const getFilmsServis = new GetFilmsServis();
 const sStorage = new SStorage();
+// const addrressLivePage = '/Filmoteka/';
+// const addrressLocalPage = '/index.html';
 
 // ========================
 const loadMo = document.querySelector('.tui-pagination')
@@ -23,9 +25,13 @@ loadMo.addEventListener('click', loadMore);
 console.log(document.location.pathname)
 document.addEventListener('DOMContentLoaded', onCurrentPage)
 
-
-refs.search.addEventListener('submit', onSearch);
-
+// проверяет текущую страницу и вешает слушатель на форму поиска
+// export function onDocumentCurrentPage() {
+//     if (document.location.pathname === addrressLocalPage) {
+//         refs.search.addEventListener('submit', onSearch);
+//     }
+// }
+// onDocumentCurrentPage();
 
 export let userSettings = {
     page: getFilmsServis.currentPage,
@@ -73,7 +79,7 @@ export function onSearch(e) {
     getFilmsServis.userRequest = e.target[0].value.toLowerCase().trim();
         
     if (getFilmsServis.userRequest === '') {
-        getFilmsServis.reset();
+        getFilmsServis.reset()
         sStorage.clear();
         refs.message.classList.remove('visually-hidden');
         searchErrorShow();

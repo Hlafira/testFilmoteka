@@ -68,7 +68,7 @@ class FbFilmsData {
 
     try {
       let filmW = await this.checkFilmInList(film.id, place);
-
+      console.log('filmW:', filmW);
       if (!filmW) {
         const { id, title, genres, release_date, poster_path, vote, language } =
           film;
@@ -84,6 +84,7 @@ class FbFilmsData {
         });
         filmW.place = place;
         this.filmList.push(filmW);
+        console.log('writeTo this.filmList=', this.filmList);
       }
 
       await set(ref(this.db, 'users/' + this.uid + '/' + filmW.id), filmW);
@@ -107,7 +108,6 @@ class FbFilmsData {
 
       if (snapshot.exists()) {
         const filmObjects = snapshot.val();
-
         this.filmList = Object.values(filmObjects).map(
           ({ id, title, genres, year, poster_path, vote, place }) => {
             const film = new FilmFromList({
@@ -145,7 +145,6 @@ class FbFilmsData {
         await this.#readFilmToUser();
       }
     } catch (e) {
-      console.log('readFilms error', e);
       return returnMessage(e.code, this.language);
     }
     return {

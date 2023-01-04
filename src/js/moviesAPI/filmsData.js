@@ -73,6 +73,7 @@ class FilmsData {
       language: 'en',
       'vote_average.gte': 6,
       include_adult: false,
+      'vote_average.gte': 5,
       sort_by: 'popularity.desc',
     });
 
@@ -320,13 +321,11 @@ async function TestFilms() {
 export default FilmsData;
 export class FilmFromList {
   constructor({ id, title, genres, year, poster_path, vote, language = 'en' }) {
-    let floatVote = parseFloat(vote);
-    floatVote = floatVote ? floatVote : 0;
     this.id = id;
     this.title = title;
     this.poster_path = poster_path;
     this.year = year;
-    this.vote = floatVote.toFixed(2);
+    this.vote = vote.toFixed(2);
     this.genres = genres;
     this.language = language;
     this.posters = this.preparePosters(poster_path);
@@ -357,11 +356,9 @@ export class SingleFilm {
     release_date,
     language,
   }) {
-    let floatVote = parseFloat(vote);
-    floatVote = floatVote ? floatVote : 0;
     this.id = id;
     this.title = title;
-    this.vote = floatVote;
+    this.vote = vote;
     this.votes = votes;
     this.popularity = popularity;
     this.original_title = original_title;
