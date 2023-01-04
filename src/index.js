@@ -14,6 +14,7 @@ import { loginModal } from './js/firebase/loginModal';
 
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { firebaseConfig } from './js/firebase/fireBaseData';
 //import { auth, filmsDatabase } from './js/firebase/fbInit';
 
 import { changeMode } from './js/changeMode/changeMode';
