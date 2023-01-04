@@ -12,7 +12,11 @@ import { retrySearch } from './js/errors/retrySearch';
 import { onPagination } from './js/pagination/pagination';
 import { loginModal } from './js/firebase/loginModal';
 
-import { firebaseAuth } from './js/firebase/fbAuth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
 //import { auth, filmsDatabase } from './js/firebase/fbInit';
 
 import { changeMode } from './js/changeMode/changeMode';
