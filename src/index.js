@@ -23,8 +23,8 @@ import {
   deleteUser,
   updateProfile,
 } from 'firebase/auth';
-import { fbFilmsAuth } from './js/firebase/fbAuth';
 
 import { changeMode } from './js/changeMode/changeMode';
 // import { testFbDataBase } from './js/firebase/test';
 // testFbDataBase();
+console.log('change');
