@@ -60,7 +60,7 @@ firebaseAuth.singUp(
 */
 
 /* Примеры использования*/
-//const getFilms = new FilmsData();
+const getFilms = new FilmsData();
 /* Регистрация 
 Пользователь с таким именем уже есть
 */
@@ -98,13 +98,13 @@ async function exampleGetFilmFromQU() {
   }
 }
 
-// /* Запись фильма в библиотеку */
-// async function exampleWriteToLibrary() {
-//   const film1 = await getFilms.getById(106541);
-//   console.log('film1 =', film1);
-//   result = await fbFilmsData.writeTo(film1, 'WA');
-//   console.log('result = ', result);
-// }
+/* Запись фильма в библиотеку */
+async function exampleWriteToLibrary() {
+  const film1 = await getFilms.getById(19995);
+  console.log('film1 =', film1);
+  result = await fbFilmsData.writeTo(film1, 'WA');
+  console.log('result = ', result);
+}
 
 export function testFbDataBase() {
   const email = 'some17email@mail.com';
@@ -113,9 +113,9 @@ export function testFbDataBase() {
     console.log('login');
     exampleLogin();
     exampleGetFilmFromQU();
-    // setTimeout(() => {
-    //   exampleWriteToLibrary();
-    // }, 4000);
+    setTimeout(() => {
+      exampleWriteToLibrary();
+    }, 4000);
   });
 }
 
