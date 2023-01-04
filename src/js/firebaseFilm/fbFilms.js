@@ -23,6 +23,7 @@ class FbFilmsData {
    */
   setUid() {
     this.uid = fbFilmsAuth.getUserUid();
+
     if (this.uid) {
       this.refs = ref(this.db, 'users/' + this.uid);
     } else {
@@ -109,6 +110,7 @@ class FbFilmsData {
 
       if (snapshot.exists()) {
         const filmObjects = snapshot.val();
+        console.log(filmObjects);
         this.filmList = Object.values(filmObjects).map(
           ({ id, title, genres, year, poster_path, vote, place }) => {
             const film = new FilmFromList({

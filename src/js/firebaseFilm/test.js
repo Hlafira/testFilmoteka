@@ -102,7 +102,7 @@ async function exampleGetFilmFromQU() {
 async function exampleWriteToLibrary() {
   const film1 = await getFilms.getById(19995);
   console.log('film1 =', film1);
-  result = await fbFilmsData.writeTo(film1, 'WA');
+  const result = await fbFilmsData.writeTo(film1, 'WA');
   console.log('result = ', result);
 }
 
@@ -111,11 +111,9 @@ export function testFbDataBase() {
   const password = 'anypassword';
   document.querySelector('.header').addEventListener('click', () => {
     console.log('login');
-    exampleLogin();
+
     exampleGetFilmFromQU();
-    setTimeout(() => {
-      exampleWriteToLibrary();
-    }, 4000);
+    exampleWriteToLibrary();
   });
 }
 
