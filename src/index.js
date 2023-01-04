@@ -14,17 +14,8 @@ import { loginModal } from './js/firebaseFilm/loginModal';
 
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-//import { firebaseConfig } from './js/firebase/fireBaseData';
-// import {
-//   getAuth,
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-//   onAuthStateChanged,
-//   deleteUser,
-//   updateProfile,
-// } from 'firebase/auth';
 import { fbFilmsAuth } from './js/firebaseFilm/testAuth';
 import { changeMode } from './js/changeMode/changeMode';
 import { testFbDataBase } from './js/firebaseFilm/test';
 testFbDataBase();
-console.log('change11');
+console.log('change12');

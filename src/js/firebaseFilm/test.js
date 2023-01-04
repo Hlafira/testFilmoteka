@@ -1,6 +1,6 @@
-//import { fbFilmsData, PLACE_Q, PLACE_W } from './fbFilms';
+import { fbFilmsData, PLACE_Q, PLACE_W } from './fbFilms';
 import { fbFilmsAuth } from './testAuth';
-//import FilmsData from '../moviesAPI/filmsData';
+import FilmsData from '../moviesAPI/filmsData';
 /*
 Ссылка на проект https://console.firebase.google.com/project/filmoteks-fs61/overview
 Вкладки Authentication
@@ -88,15 +88,15 @@ async function exampleLogOut() {
 }
 
 // /* Получение списка фильмов */
-// async function exampleGetFilmFromQU() {
-//   if (firebaseAuth.isLogin) {
-//     const films = await fbFilmsData.getFilms(PLACE_Q);
+async function exampleGetFilmFromQU() {
+  if (fbFilmsAuth.isLogin) {
+    const films = await fbFilmsData.getFilms(PLACE_Q);
 
-//     console.log('filmsQU', films);
-//     const films2 = await fbFilmsData.getFilms(PLACE_W);
-//     console.log('films WA= ', films2);
-//   }
-// }
+    console.log('filmsQU', films);
+    const films2 = await fbFilmsData.getFilms(PLACE_W);
+    console.log('films WA= ', films2);
+  }
+}
 
 // /* Запись фильма в библиотеку */
 // async function exampleWriteToLibrary() {
@@ -111,7 +111,8 @@ export function testFbDataBase() {
   const password = 'anypassword';
   document.querySelector('.header').addEventListener('click', () => {
     console.log('login');
-    exampleRegistration();
+    exampleLogin();
+    exampleGetFilmFromQU();
     // setTimeout(() => {
     //   exampleWriteToLibrary();
     // }, 4000);

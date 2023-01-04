@@ -1,6 +1,6 @@
-import { getDatabase, ref, set, onValue, get, child } from 'firebase/database';
-import { app, testFirebase } from './fbInit';
-import { firebaseAuth } from './fbAuth';
+import { ref, set, get, child } from 'firebase/database';
+
+import { fbFilmsAuth } from './testAuth';
 import { filmsDatabase } from './fbInit';
 import { returnMessage } from '../dataStorage/errorsMessage';
 import { FilmFromList, SingleFilm, FilmsData } from '../moviesAPI/filmsData';
@@ -19,12 +19,12 @@ class FbFilmsData {
   }
 
   /**
-   * @param {string} uid
+   *
    */
-  setUid(uid) {
-    if (uid) {
-      this.uid = uid;
-      this.refs = ref(this.db, 'users/' + uid);
+  setUid() {
+    this.uid = fbFilmsAuth.getUserUid();
+    if (this.uid) {
+      this.refs = ref(this.db, 'users/' + this.uid);
     } else {
       this.uid = null;
       this.refs = null;
@@ -100,6 +100,7 @@ class FbFilmsData {
    * @returns
    */
   async #readFilmToUser() {
+    this.setUid();
     if (!this.refs) {
       return false;
     }
@@ -134,6 +135,7 @@ class FbFilmsData {
    * @returns {films:Array, message:String} список фильмов , сообщение об ошибке
    */
   async getFilms(place) {
+    this.setUid();
     if (place != PLACE_Q && place != PLACE_W) {
       return returnMessage('films/place', this.language);
     }
