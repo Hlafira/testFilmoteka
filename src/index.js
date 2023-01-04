@@ -10,7 +10,7 @@ import toggleModalFilm from './js/modals/modal-film';
 import { onDocumentCurrentPage } from './js/renderMarkupFilmoteka/renderMarkupFilmoteka';
 import { retrySearch } from './js/errors/retrySearch';
 import { onPagination } from './js/pagination/pagination';
-import { loginModal } from './js/firebase/loginModal';
+import { loginModal } from './js/firebaseFilm/loginModal';
 
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
@@ -23,7 +23,7 @@ import {
   deleteUser,
   updateProfile,
 } from 'firebase/auth';
-import { FbFilmsAuth } from './js/firebase/fbAuth';
+import { FbFilmsAuth } from './js/firebaseFilm/testAuth';
 import { changeMode } from './js/changeMode/changeMode';
 // import { testFbDataBase } from './js/firebase/test';
 // testFbDataBase();

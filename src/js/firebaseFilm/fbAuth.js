@@ -12,7 +12,7 @@ import { authMy } from './fbInit';
 import { fbFilmsData } from './fbFilms';
 import { returnMessage } from '../dataStorage/errorsMessage';
 
-class FbFilmsAuth {
+export class FbFilmsAuth {
   constructor(user, language = 'en') {
     console.log('constructor');
     this.user = user;
