@@ -113,13 +113,3 @@ authMy.onAuthStateChanged(user => {
   }
   renderLogin(fbFilmsAuth.isLogin, fbFilmsAuth.getUserDisplayName());
 });
-
-async function exampleLogin() {
-  const email = 'some9email@mail.com';
-  const password = 'anypassword';
-  const result = await fbFilmsAuth.login(email, password);
-  console.log(result);
-  console.log(fbFilmsAuth.getUserDisplayName());
-}
-
-exampleLogin();
